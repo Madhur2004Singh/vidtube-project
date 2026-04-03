@@ -5,15 +5,11 @@ import cookieParser from "cookie-parser";
 
 const app = express();
 
-app.use(
+app.use(cors({
+  origin: "http://localhost:3000",
+  credentials: true
+}));
 
-    cors({
-        origin: process.env.CORS_ORIGIN,
-        credentials: true
-    })
-
-
-)
 // common middleware
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));// Parses HTML form data
